@@ -3,9 +3,8 @@ import logo from "../../assets/images/logo.png";
 export function Header() {
   return (
     <div style={{ display: "flex" }}>
-      <img src={logo} alt="logo" />
-
-      <h2 className={s.header_txt}>Watowatch</h2>
+      <img style={{ height: 53 }} src={logo} alt="logo" />
+      <span className={s.header_txt}>Watowatch</span>
     </div>
   );
 }
