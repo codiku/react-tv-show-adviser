@@ -1,9 +1,19 @@
+import { useEffect } from "react";
 import s from "./global.module.css";
 import { Header } from "./components/header";
 import bg_img from "./assets/images/bg.png";
 import { MovieDetail } from "./components/movie-detail";
 import { MovieList } from "./components/movie-list";
+import { TVShowAPI } from "./api/tv-show";
+
 export function App() {
+  const setPopularTvShow = async () => {
+    const popularShowList = await TVShowAPI.fetchPopulars();
+    console.log("***", popularShowList);
+  };
+  useEffect(() => {
+    setPopularTvShow();
+  }, []);
   return (
     <div
       className={`${s.main_container}`}

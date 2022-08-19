@@ -4,7 +4,7 @@ export function MovieList(props) {
   return (
     <div className={`${s.container}`}>
       {[1, 2, 3, 4].map((movie) => (
-        <div style={{ paddingRight: 50 }}>
+        <div key={movie} style={{ marginRight: 50 }}>
           <MovieListItem movie={movie} />
         </div>
       ))}
