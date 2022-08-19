@@ -1,0 +1,19 @@
+.title {
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 70px;
+}
+
+.description:hover {
+    overflow-y: auto;
+}
+
+.description {
+    overflow-y: hidden;
+    font-style: normal;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 39px;
+    height: 120px;
+}

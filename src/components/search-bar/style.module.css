@@ -1,13 +1,22 @@
+.icon {
+    position: absolute;
+    margin-left: 25px;
+    margin-top: 15px;
+}
+
 .input {
     border-radius: 30px;
     background-color: #d9d9d96e;
     height: 60px;
     padding: 20px;
     color: white;
-    width: 100%;
     font-style: normal;
     font-weight: 100;
     font-size: 26px;
+    padding-left: 70px;
+    width: 100%;
+    border-color: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 input::placeholder {

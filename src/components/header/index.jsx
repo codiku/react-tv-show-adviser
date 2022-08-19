@@ -1,10 +1,14 @@
-import s from "./style.module.css";
-import logo from "../../assets/images/logo.png";
+import { SearchBar } from "../search-bar";
+import { Logo } from "../logo";
 export function Header() {
   return (
-    <div style={{ display: "flex" }}>
-      <img style={{ height: 53 }} src={logo} alt="logo" />
-      <span className={s.header_txt}>Watowatch</span>
+    <div className="row">
+      <div className="col-4">
+        <Logo />
+      </div>
+      <div className="col-md-12 col-lg-4 pull-3">
+        <SearchBar />
+      </div>
     </div>
   );
 }
