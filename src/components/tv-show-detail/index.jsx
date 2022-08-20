@@ -6,7 +6,9 @@ export function TVShowDetail({ tvShow }) {
       <span className={s.title}>{tvShow.name}</span>
       <div className={s.stars_container}>
         <FiveStarRating rating={tvShow.vote_average / 2} />
-        <span style={{ marginTop: 2 }}>{tvShow.vote_average / 2} / 5</span>
+        <span style={{ marginTop: 2 }}>
+          {(tvShow.vote_average / 2).toFixed(2)} / 5
+        </span>
       </div>
       <div className="row">
         <div className={`col-sm-12 col-md-8 ${s.description}`}>

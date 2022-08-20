@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import s from "./global.module.css";
 import { Header } from "./components/header";
-import bg_img from "./assets/images/bg.png";
 import { TVShowDetail } from "./components/tv-show-detail";
 import { TVShowList } from "./components/tv-show-list";
 import { TVShowAPI } from "./api/tv-show";
@@ -15,24 +14,33 @@ export function App() {
     setPopularTvShows();
   }, []);
 
-  /*const setRecommendedTvShows = async () => {
-    const recommendedTVShow = await TVShowAPI.fetchRecommendations(
-      currentTVShow.id
-    );
-    setTvShowList(recommendedTVShow);
+  const setRecommendedTvShows = async (showId) => {
+    const recommendedTVShow = await TVShowAPI.fetchRecommendationsById(showId);
+    setTvShowList(recommendedTVShow.slice(1, 10));
   };
-*/
+
   const setPopularTvShows = async () => {
     const popularShowList = await TVShowAPI.fetchPopulars();
-    setTvShowList(popularShowList);
+    setTvShowList(popularShowList.slice(1, 10));
     setCurrentTVShow(popularShowList[0]);
+  };
+
+  const onSubmitSearch = async (text) => {
+    const foundTVShowList = await TVShowAPI.fetchByTerm(text);
+    setCurrentTVShow(foundTVShowList[0]);
+    setRecommendedTvShows(foundTVShowList[0].id);
+  };
+
+  const onClickRecommendedItem = (tvShow) => {
+    console.log(tvShow);
+    setCurrentTVShow(tvShow);
   };
 
   return (
     <div
       className={`${s.main_container}`}
       style={{
-        background: currentTVShow
+        background: currentTVShow.id
           ? `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("${
               BACKDROP_BASE_URL + currentTVShow.backdrop_path
             }") no-repeat center / cover`
@@ -40,7 +48,7 @@ export function App() {
       }}
     >
       <div style={{ flex: 2 }}>
-        <Header />
+        <Header onSubmitSearch={onSubmitSearch} />
       </div>
       {tvShowList.length > 0 ? (
         <>
@@ -48,7 +56,10 @@ export function App() {
             <TVShowDetail tvShow={currentTVShow} />
           </div>
           <div style={{ flex: 2 }}>
-            <TVShowList tvShowList={tvShowList} />
+            <TVShowList
+              onClickItem={onClickRecommendedItem}
+              tvShowList={tvShowList}
+            />
           </div>
         </>
       ) : (
