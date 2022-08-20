@@ -8,22 +8,26 @@ import { TVShowAPI } from "./api/tv-show";
 
 const BACKDROP_BASE_URL = "https://image.tmdb.org/t/p/original/";
 export function App() {
-  const [currentTVShow, setCurrentTVShow] = useState();
+  const [currentTVShow, setCurrentTVShow] = useState({});
   const [tvShowList, setTvShowList] = useState([]);
 
   useEffect(() => {
-    setPopularTvShow();
+    setPopularTvShows();
   }, []);
 
-  const setPopularTvShow = async () => {
+  /*const setRecommendedTvShows = async () => {
+    const recommendedTVShow = await TVShowAPI.fetchRecommendations(
+      currentTVShow.id
+    );
+    setTvShowList(recommendedTVShow);
+  };
+*/
+  const setPopularTvShows = async () => {
     const popularShowList = await TVShowAPI.fetchPopulars();
     setTvShowList(popularShowList);
-    console.log("set list", popularShowList);
     setCurrentTVShow(popularShowList[0]);
-    console.log("set one ", popularShowList[0]);
   };
 
-  console.log(currentTVShow);
   return (
     <div
       className={`${s.main_container}`}

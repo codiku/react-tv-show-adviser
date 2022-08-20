@@ -1,13 +1,14 @@
 import s from "./style.module.css";
-export function TVShowListItem(props) {
+export function TVShowListItem({ tvShow }) {
+  console.log("***", tvShow);
   return (
     <div style={{ position: "relative" }}>
       <img
-        alt={props.movie}
-        src={"https://fakeimg.pl/300x150/?text=" + props.movie}
+        alt={tvShow.name}
+        src={tvShow.backdrop_path}
         style={{ borderRadius: 10 }}
       />
-      <div className={s.title}>Hello</div>
+      <div className={s.title}>{tvShow.name}</div>
     </div>
   );
 }
