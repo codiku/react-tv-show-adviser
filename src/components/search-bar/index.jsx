@@ -3,7 +3,7 @@ import { Search as SearchIcon } from "react-bootstrap-icons";
 
 export function SearchBar(props) {
   const onKeyUp = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.target.value !== "") {
       props.onSubmit(e.target.value);
     }
   };

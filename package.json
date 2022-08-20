@@ -2,7 +2,7 @@
   "name": "react-tv-show-adviser",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://codiku.github.io",
+  "homepage": "https://codiku-dev.github.io/watowatch",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",

@@ -27,13 +27,14 @@ export function App() {
 
   const onSubmitSearch = async (text) => {
     const foundTVShowList = await TVShowAPI.fetchByTerm(text);
+    console.log(foundTVShowList);
     setCurrentTVShow(foundTVShowList[0]);
     setRecommendedTvShows(foundTVShowList[0].id);
   };
 
   const onClickRecommendedItem = (tvShow) => {
-    console.log(tvShow);
     setCurrentTVShow(tvShow);
+    setRecommendedTvShows(tvShow.id);
   };
 
   return (
@@ -50,21 +51,24 @@ export function App() {
       <div style={{ flex: 2 }}>
         <Header onSubmitSearch={onSubmitSearch} />
       </div>
-      {tvShowList.length > 0 ? (
-        <>
-          <div style={{ flex: 4 }}>
-            <TVShowDetail tvShow={currentTVShow} />
-          </div>
-          <div style={{ flex: 2 }}>
+
+      <>
+        <div style={{ flex: 4 }}>
+          {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
+        </div>
+        <div style={{ flex: 2 }}>
+          {tvShowList.length > 0 ? (
             <TVShowList
               onClickItem={onClickRecommendedItem}
               tvShowList={tvShowList}
             />
-          </div>
-        </>
-      ) : (
-        "Loading"
-      )}
+          ) : (
+            <span className={s.no_content}>
+              No recommendations found for this show :/
+            </span>
+          )}
+        </div>
+      </>
     </div>
   );
 }
