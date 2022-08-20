@@ -1,9 +1,0 @@
-.container:hover {
-    overflow: overlay;
-
-}
-
-.container {
-    display: flex;
-    overflow: hidden;
-}

@@ -8,11 +8,3 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
-.movie_list_title {
-    font-style: normal;
-    font-family: Roboto;
-    font-weight: 600;
-    font-size: 27px;
-    line-height: 39px;
-}
