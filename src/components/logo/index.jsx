@@ -1,10 +1,9 @@
 import s from "./style.module.css";
-import logo from "../../assets/images/logo.png";
-export function Logo() {
+export function Logo({ image, text }) {
   return (
     <div style={{ display: "flex" }}>
-      <img style={{ height: 40 }} src={logo} alt="logo" />
-      <span className={s.logo_txt}>Watowatch</span>
+      <img style={{ height: 40 }} src={image} alt="logo" />
+      <span className={s.logo_txt}>{text}</span>
     </div>
   );
 }
