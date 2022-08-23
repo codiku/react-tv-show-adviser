@@ -7,7 +7,10 @@ export function TVShowList({ tvShowList, onClickItem }) {
       <div className={`${s.list_container}`}>
         {tvShowList.map((tvShow) => {
           return (
-            <div key={tvShow.id} style={{ marginRight: 50 }}>
+            <div
+              key={tvShow.id}
+              style={{ marginRight: 50, marginRight: 50, marginLeft: 50 }}
+            >
               <TVShowListItem
                 imgBaseURL={"https://image.tmdb.org/t/p/w300"}
                 onClickItem={onClickItem}
