@@ -1,7 +1,7 @@
 .title {
     font-weight: 400;
-    font-size: 70px;
-    line-height: 70px;
+    font-size: 35px;
+    line-height: 45px;
 }
 
 .description:hover {
@@ -13,7 +13,7 @@
     font-style: normal;
     font-family: Roboto;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 39px;
     height: 120px;
     margin-top: 10px;
