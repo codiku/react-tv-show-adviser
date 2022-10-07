@@ -12,7 +12,7 @@ export const FAKE_POPULARS = [
       "Across more than a decade, 17 teen boys and young men were murdered by convicted killer Jeffrey Dahmer. How did he evade arrest for so long?",
     popularity: 6817.15,
     poster_path: "/f2PVrphK0u81ES256lw3oAZuF3x.jpg",
-    vote_average: 8.4,
+    vote_average: 10,
     vote_count: 591,
   },
 ];
