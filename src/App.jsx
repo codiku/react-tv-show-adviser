@@ -2,30 +2,29 @@ import { useEffect, useState } from "react";
 import { TVShowAPI } from "./api/tv-show";
 import s from "./style.module.css";
 import { BACKDROP_BASE_URL } from "./config";
-import { TVShowDetail } from "./components/tv-show-detail/TVShowDetail";
+import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
 
 export function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
 
-  useEffect(() => {
-    (async () => {
-      const popularShowList = await TVShowAPI.fetchPopulars();
-      if (popularShowList.length > 0) {
-        setCurrentTVShow(popularShowList[0]);
-      }
-    })();
-  }, []);
+  async function fetchPopulars() {
+    const popularTVShowList = await TVShowAPI.fetchPopulars();
+    if (popularTVShowList.length > 0) {
+      setCurrentTVShow(popularTVShowList[0]);
+    }
+  }
 
-  console.log(currentTVShow);
+  useEffect(() => {
+    fetchPopulars();
+  }, []);
 
   return (
     <div
       className={s.main_container}
       style={{
         background: currentTVShow
-          ? `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("${
-              BACKDROP_BASE_URL + currentTVShow.backdrop_path
-            }") no-repeat  center / cover`
+          ? `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+             url("${BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center / cover`
           : "black",
       }}
     >
