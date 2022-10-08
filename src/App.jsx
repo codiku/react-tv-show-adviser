@@ -48,19 +48,30 @@ export function App() {
       <div className={s.tv_show_details}>
         {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
       </div>
-
-      {currentTVShow && (
-        <>
-          <div className={s.recommended_shows}>
-            <div>You may also like :</div>
-
+      <div className={s.recommended_shows}>
+        {currentTVShow && (
+          <>
             <TVShowListItem
-              onClick={(tvShow) => console.log("You click an item", tvShow)}
               tvShow={currentTVShow}
+              onClick={(tvShow) => {
+                console.log("i have been clicked", tvShow);
+              }}
             />
-          </div>
-        </>
-      )}
+            <TVShowListItem
+              tvShow={currentTVShow}
+              onClick={(tvShow) => {
+                console.log("i have been clicked", tvShow);
+              }}
+            />
+            <TVShowListItem
+              tvShow={currentTVShow}
+              onClick={(tvShow) => {
+                console.log("i have been clicked", tvShow);
+              }}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 }
