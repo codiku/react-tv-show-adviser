@@ -3,11 +3,9 @@ import { TVShowAPI } from "./api/tv-show";
 import s from "./style.module.css";
 import { BACKDROP_BASE_URL } from "./config";
 import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
-import { TVShowListItem } from "./components/TVShowListItem/TVShowListItem";
 import { Logo } from "./components/Logo/Logo";
 import logoImg from "./assets/images/logo.png";
 import { TVShowList } from "./components/TVShowList/TVShowList";
-
 export function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
   const [recommendationList, setRecommendationList] = useState([]);

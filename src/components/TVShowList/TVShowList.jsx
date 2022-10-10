@@ -1,10 +1,11 @@
 import { TVShowListItem } from "../TVShowListItem/TVShowListItem";
 import s from "./style.module.css";
-export function TVShowList({ tvShowList, onClickItem }) {
+
+export function TVShowList({ tvShowList }) {
   return (
-    <>
-      <span className={s.title}>You'll probably also like...</span>
-      <div className={s.list_container}>
+    <div>
+      <div className={s.title}>You'll probably like :</div>
+      <div className={s.list}>
         {tvShowList.map((tvShow) => {
           return (
             <span className={s.tv_show_item} key={tvShow.id}>
@@ -16,6 +17,6 @@ export function TVShowList({ tvShowList, onClickItem }) {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
