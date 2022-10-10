@@ -1,0 +1,23 @@
+.title {
+  font-style: normal;
+  font-family: Roboto;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 39px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.list_container:hover {
+  overflow: overlay;
+}
+
+.list_container {
+  display: flex;
+  width: 100vw - 25px;
+  overflow-x: hidden;
+}
+
+.tv_show_item {
+  margin-right: 20px;
+}

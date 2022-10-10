@@ -1,6 +1,6 @@
 .container {
+  position: relative;
   cursor: pointer;
-  width: 300px;
 }
 
 .title {
