@@ -17,7 +17,7 @@ export const FAKE_POPULARS = [
   },
 ];
 
-export const FAKE_RECOMMENDED = [
+export const FAKE_RECOMMENDATIONS = [
   {
     adult: false,
     backdrop_path: "/ajztm40qDPqMONaSJhQ2PaNe2Xd.jpg",

@@ -8,17 +8,7 @@ import logoImg from "./assets/images/logo.png";
 
 export function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
-  const [recommendedTVShowList, setRecommendedTVShowList] = useState([]);
-
-  useEffect(() => {
-    fetchPopulars();
-  }, []);
-
-  useEffect(() => {
-    if (currentTVShow) {
-      fetchRecommended(currentTVShow.id);
-    }
-  }, [currentTVShow]);
+  const [recommendationList, setRecommendationList] = useState([]);
 
   async function fetchPopulars() {
     const popularTVShowList = await TVShowAPI.fetchPopulars();
@@ -27,16 +17,26 @@ export function App() {
     }
   }
 
-  async function fetchRecommended(tvShowId) {
-    const recommendedTVShowListResp = await TVShowAPI.fetchRecommendationsById(
+  async function fetchRecommendations(tvShowId) {
+    const recommendationListResp = await TVShowAPI.fetchRecommendations(
       tvShowId
     );
-    if (recommendedTVShowListResp.length > 0) {
-      setRecommendedTVShowList(recommendedTVShowListResp.slice(1, 10));
+    if (recommendationListResp.length > 0) {
+      setRecommendationList(recommendationListResp.slice(0, 10));
     }
   }
-  console.log(recommendedTVShowList);
 
+  useEffect(() => {
+    fetchPopulars();
+  }, []);
+
+  useEffect(() => {
+    if (currentTVShow) {
+      fetchRecommendations(currentTVShow.id);
+    }
+  }, [currentTVShow]);
+
+  console.log(recommendationList);
   return (
     <div
       className={s.main_container}

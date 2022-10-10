@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FAKE_POPULARS, FAKE_RECOMMENDED } from "./fake_data";
+import { FAKE_POPULARS, FAKE_RECOMMENDATIONS } from "./fake_data";
 import { BASE_URL, API_KEY_PARAM } from "../config";
 
 export class TVShowAPI {
@@ -10,12 +10,12 @@ export class TVShowAPI {
     return FAKE_POPULARS;
   }
 
-  static async fetchRecommendationsById(tvShowId) {
-    //return (
-    //   await axios.get(
-    //     `${BASE_URL}tv/${tvShowId}/recommendations${API_KEY_PARAM}`
-    //   )
-    // ).data.results;
-    return FAKE_RECOMMENDED;
+  static async fetchRecommendations(tvShowId) {
+    // const response = await axios.get(
+    //   `${BASE_URL}tv/${tvShowId}/recommendations${API_KEY_PARAM}`
+    // );
+    // return response.data.results;
+
+    return FAKE_RECOMMENDATIONS;
   }
 }
