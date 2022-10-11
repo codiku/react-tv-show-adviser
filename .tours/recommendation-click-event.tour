@@ -4,7 +4,7 @@
   "steps": [
     {
       "file": "src/App.jsx",
-      "description": "### Function to update the current tv show\n\n```javascript\nupdateCurrentTvShow = (tvShow) => {\n    setCurrentTVShow(tvShow);\n  };\n```",
+      "description": "### Create a function to update the current tv show\n\n```javascript\nupdateCurrentTvShow = (tvShow) => {\n    setCurrentTVShow(tvShow);\n  };\n```",
       "line": 38,
       "selection": {
         "start": {
