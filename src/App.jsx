@@ -6,6 +6,7 @@ import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
 import { Logo } from "./components/Logo/Logo";
 import logoImg from "./assets/images/logo.png";
 import { TVShowList } from "./components/TVShowList/TVShowList";
+import { SearchBar } from "./components/SearchBar/SearchBar";
 export function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
   const [recommendationList, setRecommendationList] = useState([]);
@@ -15,7 +16,6 @@ export function App() {
   }, []);
 
   useEffect(() => {
-    console.log("current tv show has changed");
     if (currentTVShow) {
       fetchRecommendations(currentTVShow.id);
     }
@@ -63,7 +63,7 @@ export function App() {
             />
           </div>
           <div className="col-md-12 col-lg-4">
-            <input style={{ width: "100%" }} type="text" />
+            <SearchBar />
           </div>
         </div>
       </div>
