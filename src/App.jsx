@@ -43,6 +43,13 @@ export function App() {
     setCurrentTVShow(tvShow);
   }
 
+  async function searchTVShow(title) {
+    const tvShowListResp = await TVShowAPI.fetchByTitle(title);
+    if (tvShowListResp.length > 0) {
+      setCurrentTVShow(tvShowListResp[0]);
+    }
+  }
+
   return (
     <div
       className={s.main_container}
@@ -63,7 +70,7 @@ export function App() {
             />
           </div>
           <div className="col-md-12 col-lg-4">
-            <SearchBar />
+            <SearchBar onSubmit={searchTVShow} />
           </div>
         </div>
       </div>
