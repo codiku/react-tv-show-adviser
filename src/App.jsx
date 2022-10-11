@@ -10,13 +10,23 @@ export function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
   const [recommendationList, setRecommendationList] = useState([]);
 
+  useEffect(() => {
+    fetchPopulars();
+  }, []);
+
+  useEffect(() => {
+    console.log("current tv show has changed");
+    if (currentTVShow) {
+      fetchRecommendations(currentTVShow.id);
+    }
+  }, [currentTVShow]);
+
   async function fetchPopulars() {
     const popularTVShowList = await TVShowAPI.fetchPopulars();
     if (popularTVShowList.length > 0) {
       setCurrentTVShow(popularTVShowList[0]);
     }
   }
-
   async function fetchRecommendations(tvShowId) {
     const recommendationListResp = await TVShowAPI.fetchRecommendations(
       tvShowId
@@ -25,16 +35,9 @@ export function App() {
       setRecommendationList(recommendationListResp.slice(0, 10));
     }
   }
-
-  useEffect(() => {
-    fetchPopulars();
-  }, []);
-
-  useEffect(() => {
-    if (currentTVShow) {
-      fetchRecommendations(currentTVShow.id);
-    }
-  }, [currentTVShow]);
+  function updateCurrentTvShow(tvShow) {
+    setCurrentTVShow(tvShow);
+  }
 
   return (
     <div
@@ -64,7 +67,12 @@ export function App() {
         {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
       </div>
       <div className={s.recommended_shows}>
-        {currentTVShow && <TVShowList tvShowList={recommendationList} />}
+        {currentTVShow && (
+          <TVShowList
+            onClickItem={updateCurrentTvShow}
+            tvShowList={recommendationList}
+          />
+        )}
       </div>
     </div>
   );

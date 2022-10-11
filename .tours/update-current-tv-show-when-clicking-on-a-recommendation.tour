@@ -1,0 +1,12 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Update current tv show when clicking on a recommendation",
+  "steps": [
+    {
+      "file": "src/App.jsx",
+      "description": "First we need a function that will be in charge of updating the ```js currentTvShow``` based on a tvShow we receive as parameter.\n",
+      "line": 38
+    }
+  ],
+  "ref": "011-recommendations-click-event"
+}
