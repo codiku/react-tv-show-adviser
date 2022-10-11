@@ -35,21 +35,16 @@ export function App() {
       setRecommendationList(recommendationListResp.slice(0, 10));
     }
   }
-  function updateCurrentTvShow(tvShow) {
-    setCurrentTVShow(tvShow);
-  }
-
   function updateCurrentTVShow(tvShow) {
     setCurrentTVShow(tvShow);
   }
 
-  async function searchTVShow(title) {
-    const tvShowListResp = await TVShowAPI.fetchByTitle(title);
-    if (tvShowListResp.length > 0) {
-      setCurrentTVShow(tvShowListResp[0]);
+  async function fetchByTitle(title) {
+    const searchResponse = await TVShowAPI.fetchByTitle(title);
+    if (searchResponse.length > 0) {
+      setCurrentTVShow(searchResponse[0]);
     }
   }
-
   return (
     <div
       className={s.main_container}
@@ -70,7 +65,7 @@ export function App() {
             />
           </div>
           <div className="col-md-12 col-lg-4">
-            <SearchBar onSubmit={searchTVShow} />
+            <SearchBar onSubmit={fetchByTitle} />
           </div>
         </div>
       </div>

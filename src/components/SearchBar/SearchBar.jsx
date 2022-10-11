@@ -1,13 +1,12 @@
 import s from "./style.module.css";
 import { Search as SearchIcon } from "react-bootstrap-icons";
+
 export function SearchBar({ onSubmit }) {
-  // Submit the input value when pressing the ENTER key
   function submit(e) {
-    if (e.key === "Enter" && e.target.value.trim() !== "") {
+    if (e.key === "Enter" && e.key.trim() !== "") {
       onSubmit(e.target.value);
     }
   }
-
   return (
     <>
       <SearchIcon size={27} className={s.icon} />
