@@ -20,6 +20,9 @@ export function App() {
     fetchPopulars();
   }, []);
 
+  function setCurrentTvShowFromRecommendation(tvShow) {
+    alert(JSON.stringify(tvShow));
+  }
   return (
     <div
       className={s.main_container}
@@ -47,10 +50,22 @@ export function App() {
         {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
       </div>
       <div className={s.recommended_shows}>
-        {currentTVShow && <TVShowListItem tvShow={currentTVShow} />}
-        {currentTVShow && <TVShowListItem tvShow={currentTVShow} />}
-        {currentTVShow && <TVShowListItem tvShow={currentTVShow} />}
-        {currentTVShow && <TVShowListItem tvShow={currentTVShow} />}
+        {currentTVShow && (
+          <>
+            <TVShowListItem
+              onClick={setCurrentTvShowFromRecommendation}
+              tvShow={currentTVShow}
+            />
+            <TVShowListItem
+              onClick={setCurrentTvShowFromRecommendation}
+              tvShow={currentTVShow}
+            />
+            <TVShowListItem
+              onClick={setCurrentTvShowFromRecommendation}
+              tvShow={currentTVShow}
+            />
+          </>
+        )}
       </div>
     </div>
   );

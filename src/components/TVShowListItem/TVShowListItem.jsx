@@ -1,20 +1,14 @@
-import s from "./style.module.css";
 import { SMALL_IMG_COVER_BASE_URL } from "../../config";
-
+import s from "./style.module.css";
 export function TVShowListItem({ tvShow, onClick }) {
-  const onClick_ = () => {
-    onClick(tvShow);
-  };
   return (
-    <div onClick={onClick_} className={s.container}>
+    <div onClick={() => onClick(tvShow)} className={s.container}>
       <img
         alt={tvShow.name}
-        src={SMALL_IMG_COVER_BASE_URL + tvShow.backdrop_path}
         className={s.img}
+        src={SMALL_IMG_COVER_BASE_URL + tvShow.backdrop_path}
       />
-      <div className={s.title}>
-        {"azeazezaeazeazeazec,c,c,cc,dddsqdqddqqdqdqdqdg"}
-      </div>
+      <div className={s.title}>{tvShow.name}</div>
     </div>
   );
 }
