@@ -28,8 +28,6 @@ export function App() {
   }
 
   useEffect(() => {
-    console.log("***", "effect");
-
     fetchPopulars();
   }, []);
 
