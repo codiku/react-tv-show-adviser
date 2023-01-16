@@ -11,6 +11,7 @@
   display: flex;
   width: 100vw - 25px;
   overflow-x: hidden;
+  padding-bottom: 30px;
 }
 
 .tv_show_item {
