@@ -2,3 +2,12 @@ body{
     color: white;
     font-family: Maximum Impact;
 }
+
+::-webkit-scrollbar{
+    background: transparent
+}
+
+::-webkit-scrollbar-thumb:horizontal{
+    background-color: rgba(0,0,0,0.61);
+    border-radius: 10px;
+}
