@@ -19,7 +19,6 @@ export class TVShowAPI {
 
   static async fetchById(id) {
     const response = await axios.get(`${BASE_URL}tv/${id}&${API_KEY_PARAM}&append_to_response=credits`);
-
     return response.data;
   }
 }
