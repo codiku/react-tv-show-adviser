@@ -66,7 +66,7 @@ export const Detail = () => {
       <Header />
       <TVShowDetail tvShow={tvShow} />
       <div>
-        <h4>If you liked {tvShow.name} you'll probably love this :</h4>
+        <h4>If you enjoyed {tvShow.name} you'll probably love :</h4>
         <TVShowList
           tvShowList={recommendationList}
           onClickItem={(show) => nav(ROUTES.detail + "/" + show.id)}
