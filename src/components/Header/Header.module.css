@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+}
+
+.logo {
+  margin-top: 40px;
+  padding-left: 40px;
+  position: absolute;
+  text-decoration: none;
+  color: white;
+}
+
+.logo:hover,
+.logo:visited {
+  text-decoration: none;
+  color: white;
+}
+.searchbar_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.searchbar {
+  width: 50vw;
+}

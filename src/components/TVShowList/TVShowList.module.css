@@ -1,0 +1,12 @@
+.tv_show_list_item {
+  margin-right: 20px;
+}
+
+.list:hover {
+  overflow-x: overlay;
+}
+
+.list {
+  margin-top: 50px;
+  overflow-x: hidden;
+}

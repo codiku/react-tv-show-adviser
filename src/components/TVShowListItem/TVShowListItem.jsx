@@ -6,10 +6,12 @@ export function TVShowListItem({ tvShow, onClick, isHorizontal = true }) {
       <img
         alt={tvShow.name}
         className={s.img}
-        style={{ height: isHorizontal ? "auto" : "300px" }}
+        style={{ height: isHorizontal ? "200px" : "300px", width: isHorizontal ? "300px" : "200px" }}
         src={SMALL_IMG_COVER_BASE_URL + (isHorizontal ? tvShow.backdrop_path : tvShow.poster_path)}
       />
-      {/* <div className={s.title}>{tvShow.name}</div> */}
+      <div className={s.title} style={{ width: isHorizontal ? 300 : 200 }}>
+        {tvShow.name}
+      </div>
     </div>
   );
 }

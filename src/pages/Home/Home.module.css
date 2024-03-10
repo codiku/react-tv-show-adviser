@@ -1,0 +1,61 @@
+.header {
+  display: flex;
+}
+
+.logo {
+  margin-top: 40px;
+  padding-left: 40px;
+  position: absolute;
+}
+
+.main_section {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  overflow-y: auto;
+}
+
+.searchbar_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.searchbar {
+  width: 50vw;
+}
+
+.tv_show_detail {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding: 15px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.title {
+  font-family: Roboto;
+  font-weight: 60px;
+  font-size: 20px;
+}
+/*
+.list:hover {
+  overflow-x: overlay;
+}
+.list {
+  display: flex;
+  width: 100vw - 25px;
+  overflow-x: hidden;
+  padding-bottom: 30px;
+}
+*/
+
+.list {
+  margin-top: 50px;
+  overflow-y: auto;
+  height: 85vh;
+  margin-left: 15px;
+}
