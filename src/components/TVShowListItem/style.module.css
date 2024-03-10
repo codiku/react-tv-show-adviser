@@ -1,9 +1,27 @@
-.container {
+.container_h {
   cursor: pointer;
-  width: 300px;
   position: relative;
+  transition: transform 0.3s ease;
 }
 
+.container_h:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.container_v {
+  cursor: pointer;
+  width: 200px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.container_v:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+}
 .img {
   border-radius: 10px;
 }
