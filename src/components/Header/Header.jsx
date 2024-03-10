@@ -11,9 +11,11 @@ export const Header = ({ onSearchSubmit }) => {
       <Link to={ROUTES.home} className={s.logo}>
         {<Logo image={logo} title="Watowatch" subtitle="Find a show you may like" />}
       </Link>
-      <div className={s.searchbar_container}>
-        <div className={s.searchbar}>{<SearchBar onSubmit={onSearchSubmit} />}</div>
-      </div>
+      {onSearchSubmit && (
+        <div className={s.searchbar_container}>
+          <div className={s.searchbar}>{<SearchBar onSubmit={onSearchSubmit} />}</div>
+        </div>
+      )}
     </div>
   );
 };

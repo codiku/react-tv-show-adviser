@@ -5,7 +5,7 @@ export function TVShowList({ tvShowList, onClickItem, hasHozizontalItems = true,
     <div style={{ display: "flex", flexWrap: isSingleRow ? "nowrap" : "wrap", overflowX: "auto" }}>
       {tvShowList.map((tvShow) => {
         return (
-          <div key={tvShow.id} style={{ margin: 10 }}>
+          <div key={tvShow.id} style={{ margin: 6 }}>
             <TVShowListItem onClick={onClickItem} tvShow={tvShow} isHorizontal={hasHozizontalItems} />
           </div>
         );

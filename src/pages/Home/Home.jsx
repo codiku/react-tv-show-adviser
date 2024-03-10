@@ -46,6 +46,7 @@ export function Home() {
         background: currentTVShow
           ? `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("${BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center / cover`
           : "black",
+        padding: 25,
       }}
     >
       <Header onSearchSubmit={searchTVShow} />
@@ -60,76 +61,3 @@ export function Home() {
     </div>
   );
 }
-
-/*
-  <div className={s.header}>
-        <div className="">
-          <div>{ <Logo image={logo} title="Watowatch" subtitle="Find a show you may like" /> }</div>
-          <div className="">{ <SearchBar onSubmit={searchTVShow} />}</div>
-        </div>
-      </div>
-
-
-
-  style={{
-        background: currentTVShow
-          ? `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("${BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center / cover`
-          : "black",
-      }}
-
-      */
-/* <div className={s.recommended_shows}>
-        {recommendationList && recommendationList.length > 0 && (
-          <div>
-            <div className={s.title}>You may also like:</div>
-            <div className={s.list}>
-              <TVShowList onClickItem={setCurrentTVShow} tvShowList={recommendationList} />
-            </div>
-          </div>
-        )}
-      </div> */
-/* <div
-            className={s.tv_show_detail}
-            style={{
-              background: currentTVShow
-                ? `linear-gradient(rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 25%), url("${BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center / cover`
-                : "black",
-            }}
-          >
-            {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
-          </div> */
-
-/*
-
-           async function searchTVShow(tvShowName) {
-    console.log("hi ", tvShowName);
-    try {
-      const searchResponse = await TVShowAPI.fetchByTitle(tvShowName);
-      if (searchResponse.length > 0) {
-        setCurrentTVShow(searchResponse[0]);
-      }
-    } catch (error) {
-      alert("Erreur durant la recherche de la série ");
-    }
-  }
-
-    async function fetchRecommendations(tvShowId) {
-    try {
-      const recommendations = await TVShowAPI.fetchRecommendations(tvShowId);
-      if (recommendations.length > 0) {
-        setRecommendationList(recommendations);
-      }
-    } catch (error) {
-      alert("Erreur durant la recherche des séries recommendées");
-    }
-  }
-
-  const [recommendationList, setRecommendationList] = useState([]);
-
-  useEffect(() => {
-    if (currentTVShow) {
-      fetchRecommendations(currentTVShow.id);
-    }
-  }, [currentTVShow]);
-
-*/

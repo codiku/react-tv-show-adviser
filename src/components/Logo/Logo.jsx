@@ -3,7 +3,7 @@ export function Logo({ image, title, subtitle }) {
   return (
     <>
       <div className={s.container}>
-        <img src={image} className={s.img} />
+        <img src={image} className={s.img} alt="logo" />
         <span className={s.title}>{title}</span>
       </div>
       <span className={s.subtitle}>{subtitle}</span>
