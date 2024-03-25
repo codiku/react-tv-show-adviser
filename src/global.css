@@ -1,3 +1,10 @@
+html {
+  --dark-bg: #0e1221;
+  --light-text: white;
+  --light-bg: #white;
+  --dark-text: #0e1221;
+}
+
 body {
   color: white;
   font-family: Maximum Impact;

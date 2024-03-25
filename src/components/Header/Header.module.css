@@ -3,8 +3,6 @@
 }
 
 .logo {
-  margin-top: 40px;
-  position: absolute;
   text-decoration: none;
   color: white;
 }
@@ -23,4 +21,16 @@
 
 .searchbar {
   width: 50vw;
+}
+
+.darkmode_btn {
+  display: flex;
+  gap: 30px;
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  cursor: pointer;
+}
+.darkmode_icon {
+  color: #0e1221;
 }

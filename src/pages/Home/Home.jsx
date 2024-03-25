@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
+import { AiFillFilter } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { TVShowAPI } from "../../api/tv-show";
 import { Header } from "../../components/Header/Header";
+import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { TVShowList } from "../../components/TVShowList/TVShowList";
-import { BACKDROP_BASE_URL } from "../../config";
 import { ROUTES } from "../../routes/route";
 import s from "./Home.module.css";
 
 export function Home() {
   const [currentTVShow, setCurrentTVShow] = useState();
   const [searchResultList, setSearchResultList] = useState([]);
+  const [currentFilter, setCurrentFilter] = useState("");
+  const filteredResultList = searchResultList.filter((result) => {
+    return result.name.toLowerCase().includes(currentFilter.toLowerCase());
+  });
   const nav = useNavigate();
 
   useEffect(() => {
@@ -39,22 +44,24 @@ export function Home() {
       alert("Erreur durant la recherche de la série ");
     }
   }
-
   return (
     <div
       style={{
-        background: currentTVShow
-          ? `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("${BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center / cover`
-          : "black",
+        // background: currentTVShow
+        //   ? `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("${BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center / cover`
+        //   : "black",
         padding: 25,
       }}
     >
       <Header onSearchSubmit={searchTVShow} />
+      <div className={s.filterBar}>
+        <SearchBar onChange={setCurrentFilter} icon={<AiFillFilter size={27} />} placeholder="Filter the results" />
+      </div>
       <div className={s.list}>
         <TVShowList
           isSingleRow={false}
           onClickItem={(tvShow) => nav(ROUTES.detail + "/" + tvShow.id)}
-          tvShowList={searchResultList}
+          tvShowList={filteredResultList}
           hasHozizontalItems={false}
         />
       </div>

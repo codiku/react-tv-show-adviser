@@ -1,0 +1,6 @@
+.main_section {
+  height: 100vh;
+  padding: 25px;
+  flex-direction: column;
+  justify-content: space-between;
+}
